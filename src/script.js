@@ -16,6 +16,7 @@ let temp = 22;
 let descriptionElement = document.querySelector("#weatherDescription");
 let humidityElement = document.querySelector("#humidity");
 let windElement = document.querySelector("#wind");
+let pressureElement = document.querySelector("#pressure");
 
 document.querySelector("#currentDay").innerHTML = day;
 document.getElementById("temp").innerHTML = temp;
@@ -33,6 +34,7 @@ function currentTemp(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  pressureElement.innerHTML = response.data.main.pressure;
 }
 
 function submit(event) {

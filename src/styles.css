@@ -1,78 +1,77 @@
 h1 {
-    font-size: 48px;
-    font-family: "Amatic SC", cursive;
-    font-weight: normal;
-    color: dimgray;
-  }
-  h2,
-  h3 {
-    font-family: "Amatic SC", cursive;
-    font-weight: 500;
-    color: dimgray;
-  }
-  
-  h1 .fa-sun {
-    font-size: 42px;
-    color: gold;
-    display: inline;
-  }
-  
-  li {
-    font-family: "Amatic SC", cursive;
-    font-size: 24px;
-    border: 0 none;
-  }
-  .list-group-item {
-    border: none;
-    padding: 4px;
-  }
-  .fa-sun {
-    font-size: 28px;
-    color: rgba(216, 73, 37, 0.884);
-    display: inline;
-  }
-  .fa-droplet {
-    color: cornflowerblue;
-    font-size: 20px;
-    text-align: right;
-  }
-  .fa-umbrella {
-    color: rgb(199, 11, 52);
-    font-size: 20px;
-    text-align: right;
-  }
-  .fa-wind {
-    color: rgb(16, 16, 59);
-    font-size: 20px;
-    text-align: right;
-  }
-  .fa-person-rays {
-    color: rgb(219, 154, 56);
-    font-size: 20px;
-    text-align: right;
-  }
-  
-  .days {
-    font-family: "Amatic SC", cursive;
-    font-size: 39px;
-    font-weight: 500;
-    color: dimgray;
-  }
-  
-  .days .fa-sun {
-    color: gold;
-    font-size: 39px;
-  }
-  
-  .fa-cloud-sun {
-    color: cornflowerblue;
-  }
-  
-  .fa-cloud-showers-heavy {
-    color: darkslategrey;
-  }
-  
-  .fa-cloud-bolt {
-    color: rgb(247, 177, 28);
-  }
-  
+  font-size: 48px;
+  font-family: "Amatic SC", cursive;
+  font-weight: normal;
+  color: dimgray;
+}
+h2,
+h3 {
+  font-family: "Amatic SC", cursive;
+  font-weight: 500;
+  color: dimgray;
+}
+
+h1 .fa-sun {
+  font-size: 42px;
+  color: gold;
+  display: inline;
+}
+
+li {
+  font-family: "Amatic SC", cursive;
+  font-size: 24px;
+  border: 0 none;
+}
+.list-group-item {
+  border: none;
+  padding: 4px;
+}
+.fa-sun {
+  font-size: 28px;
+  color: rgba(216, 73, 37, 0.884);
+  display: inline;
+}
+.fa-heart-pulse {
+  color: rgb(201, 33, 69);
+  font-size: 20px;
+  text-align: right;
+}
+.fa-umbrella {
+  color: cornflowerblue;
+  font-size: 20px;
+  text-align: right;
+}
+.fa-wind {
+  color: rgb(16, 16, 59);
+  font-size: 20px;
+  text-align: right;
+}
+.fa-person-rays {
+  color: rgb(219, 154, 56);
+  font-size: 20px;
+  text-align: right;
+}
+
+.days {
+  font-family: "Amatic SC", cursive;
+  font-size: 39px;
+  font-weight: 500;
+  color: dimgray;
+}
+
+.days .fa-sun {
+  color: gold;
+  font-size: 39px;
+}
+
+.fa-cloud-sun {
+  color: cornflowerblue;
+}
+
+.fa-cloud-showers-heavy {
+  color: darkslategrey;
+}
+
+.fa-cloud-bolt {
+  color: rgb(247, 177, 28);
+}
