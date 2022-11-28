@@ -8,11 +8,12 @@ let days = [
   "Thursday",
   "Friday",
   "Saturday",
-  "Sunday"
+  "Sunday",
 ];
 let day = days[now.getDay()];
 let format = "c";
 let temp = 22;
+let descriptionElement = document.querySelector("#weatherDescription");
 
 document.querySelector("#currentDay").innerHTML = day;
 document.getElementById("temp").innerHTML = temp;
@@ -27,6 +28,7 @@ function currentTemp(response) {
   format = "c";
   document.getElementById("temp").innerHTML = temp;
   document.querySelector("#city").innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
 }
 
 function submit(event) {
