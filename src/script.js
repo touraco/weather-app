@@ -14,6 +14,8 @@ let day = days[now.getDay()];
 let format = "c";
 let temp = 22;
 let descriptionElement = document.querySelector("#weatherDescription");
+let humidityElement = document.querySelector("#humidity");
+let windElement = document.querySelector("#wind");
 
 document.querySelector("#currentDay").innerHTML = day;
 document.getElementById("temp").innerHTML = temp;
@@ -29,6 +31,8 @@ function currentTemp(response) {
   document.getElementById("temp").innerHTML = temp;
   document.querySelector("#city").innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function submit(event) {
