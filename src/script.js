@@ -26,7 +26,14 @@ document.querySelector(
   "#currentTime"
 ).innerHTML = `${now.getHours()}:${now.getMinutes()}`;
 
-function displayForecast() {
+initCity("Ohrid");
+
+function initCity(city) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c6f8ef4575250284954db9f4dfa7a996&units=metric`;
+  axios.get(apiUrl).then(currentTemp);
+}
+
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row d-flex justify-content-around">`;
   let forecastDays = ["Thu", "Fri", "Sat", "Sun", "Mon"];
@@ -48,6 +55,11 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=c6f8ef4575250284954db9f4dfa7a996&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function currentTemp(response) {
   console.log(Math.round(response.data.main.temp));
   temp = Math.round(response.data.main.temp);
@@ -62,13 +74,16 @@ function currentTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 function submit(event) {
   event.preventDefault();
   let city = event.target.querySelector("#searchInput").value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c6f8ef4575250284954db9f4dfa7a996&units=metric`;
-  axios.get(apiUrl).then(currentTemp);
+  // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c6f8ef4575250284954db9f4dfa7a996&units=metric`;
+  // axios.get(apiUrl).then(currentTemp);
+  initCity(city);
 }
 
 let searchForm = document.querySelector("#search");
@@ -111,8 +126,5 @@ function showPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=c6f8ef4575250284954db9f4dfa7a996&units=metric`;
   axios.get(apiUrl).then(currentTemp);
 }
-
-displayForecast();
-
 let currentLocationBtn = document.querySelector("#currentLocation");
 currentLocationBtn.addEventListener("click", currentLocationClick);
