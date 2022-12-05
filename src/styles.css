@@ -61,7 +61,7 @@ li {
 
 .days .fa-sun {
   color: gold;
-  font-size: 39px;
+  font-size: 36px;
 }
 
 .fa-cloud-sun {
@@ -74,4 +74,16 @@ li {
 
 .fa-cloud-bolt {
   color: rgb(247, 177, 28);
+}
+
+.weather-forecast {
+  text-align: center;
+}
+
+.weather-forecast-temp {
+  font-size: 28px;
+}
+
+.weather-forecast-temp-min {
+  opacity: 0.5;
 }
