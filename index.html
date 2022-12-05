@@ -33,10 +33,13 @@
               <div class="col-sm-12">
                 <div class="card" style="margin-bottom: 20px">
                   <!-- <img src="images/sunset.jpg" alt="sunset" /> -->
-                  <div class="card-body">
-                    <form style="width: 200px; float: right" id="search">
+                  <div class="card-body" style="padding-top: 0">
+                    <form
+                      style="width: 200px; float: right; margin-top: 31px"
+                      id="search"
+                    >
                       <!-- <i class<i class="fa-solid fa-magnifying-glass"></i>="fa-solid fa-magnifying-glass"></i> -->
-                      <div style="text-align: center">
+                      <div style="text-align: right">
                         <input
                           type="text"
                           class="form-control"
@@ -73,7 +76,8 @@
                       <div>
                         <h3>
                           <i class="fa-solid fa-sun"></i>
-                          <strong>Sunset</strong>: 18:03
+                          <strong>Sunset</strong>:
+                          <span id="sunset"></span>
                         </h3>
                       </div>
                     </div>
@@ -104,9 +108,7 @@
               </div>
               <div class="col-8" style="height: 100%">
                 <div class="card">
-                  <div class="d-flex days justify-content-around">
-                    <div class="weather-forecast" id="forecast"></div>
-                  </div>
+                  <div class="weather-forecast days" id="forecast"></div>
                 </div>
               </div>
             </div>

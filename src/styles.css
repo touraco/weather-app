@@ -19,9 +19,19 @@ h1 .fa-sun {
 
 li {
   font-family: "Amatic SC", cursive;
-  font-size: 24px;
+  font-size: 28px;
   border: 0 none;
 }
+
+.list-group li {
+  padding: 0;
+}
+
+.list-group li i {
+  width: 25px;
+  text-align: left;
+}
+
 .list-group-item {
   border: none;
   padding: 4px;

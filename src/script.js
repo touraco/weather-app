@@ -22,9 +22,7 @@ let iconElement = document.querySelector("#icon");
 document.querySelector("#currentDay").innerHTML = day;
 document.getElementById("temp").innerHTML = temp;
 
-document.querySelector(
-  "#currentTime"
-).innerHTML = `${now.getHours()}:${now.getMinutes()}`;
+document.querySelector("#currentTime").innerHTML = formatTime(now);
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -32,6 +30,16 @@ function formatDay(timestamp) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
+}
+
+function formatTime(date) {
+  return `${format2Digits(date.getHours())}:${format2Digits(
+    date.getMinutes()
+  )}`;
+}
+
+function format2Digits(n) {
+  return n < 10 ? "0" + n : n;
 }
 
 initCity("Ohrid");
@@ -51,22 +59,21 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `<div class="col-2">
-      <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-      ${index}
-          <img
-            src="http://openweathermap.org/img/wn/${
-              forecastDay.weather[0].icon
-            }@2x.png"
-            width="54"
-          />
-          <div class="weather-forecast-temp">
-          <span class="weather-forecast-temp-max"> ${Math.round(
-            forecastDay.temp.max
-          )}°</span><span class="weather-forecast-temp-min"> ${Math.round(
+          <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+            <img
+              src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png"
+              width="54"
+            />
+            <div class="weather-forecast-temp">
+            <span class="weather-forecast-temp-max"> ${Math.round(
+              forecastDay.temp.max
+            )}°</span><span class="weather-forecast-temp-min"> ${Math.round(
           forecastDay.temp.min
         )}°</span>
-        </div>
-      </div>`;
+          </div>
+        </div>`;
     }
   });
   forecastHTML = forecastHTML + `</div>`;
@@ -79,7 +86,7 @@ function getForecast(coordinates) {
 }
 
 function currentTemp(response) {
-  console.log(Math.round(response.data.main.temp));
+  console.log(response);
   temp = Math.round(response.data.main.temp);
   format = "c";
   document.getElementById("temp").innerHTML = temp;
@@ -92,6 +99,9 @@ function currentTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  document.getElementById("sunset").innerHTML = formatTime(
+    new Date(parseInt(response.data.sys.sunset) * 1000)
+  );
 
   getForecast(response.data.coord);
 }
@@ -99,8 +109,6 @@ function currentTemp(response) {
 function submit(event) {
   event.preventDefault();
   let city = event.target.querySelector("#searchInput").value;
-  // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c6f8ef4575250284954db9f4dfa7a996&units=metric`;
-  // axios.get(apiUrl).then(currentTemp);
   initCity(city);
 }
 
