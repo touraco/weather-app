@@ -11,20 +11,11 @@ h3 {
   color: dimgray;
 }
 
-h1 .fa-sun {
-  font-size: 42px;
-  color: gold;
-  display: inline;
-}
-
-li {
+.list-group li {
+  padding: 0;
   font-family: "Amatic SC", cursive;
   font-size: 28px;
   border: 0 none;
-}
-
-.list-group li {
-  padding: 0;
 }
 
 .list-group li i {
@@ -32,10 +23,6 @@ li {
   text-align: left;
 }
 
-.list-group-item {
-  border: none;
-  padding: 4px;
-}
 .fa-sun {
   font-size: 28px;
   color: rgba(216, 73, 37, 0.884);
@@ -56,34 +43,12 @@ li {
   font-size: 20px;
   text-align: right;
 }
-.fa-person-rays {
-  color: rgb(219, 154, 56);
-  font-size: 20px;
-  text-align: right;
-}
 
 .days {
   font-family: "Amatic SC", cursive;
   font-size: 39px;
   font-weight: 500;
   color: dimgray;
-}
-
-.days .fa-sun {
-  color: gold;
-  font-size: 36px;
-}
-
-.fa-cloud-sun {
-  color: cornflowerblue;
-}
-
-.fa-cloud-showers-heavy {
-  color: darkslategrey;
-}
-
-.fa-cloud-bolt {
-  color: rgb(247, 177, 28);
 }
 
 .weather-forecast {

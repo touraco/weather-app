@@ -21,7 +21,6 @@ let iconElement = document.querySelector("#icon");
 
 document.querySelector("#currentDay").innerHTML = day;
 document.getElementById("temp").innerHTML = temp;
-
 document.querySelector("#currentTime").innerHTML = formatTime(now);
 
 function formatDay(timestamp) {
