@@ -26,6 +26,28 @@ document.querySelector(
   "#currentTime"
 ).innerHTML = `${now.getHours()}:${now.getMinutes()}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row d-flex justify-content-around">`;
+  let forecastDays = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  forecastDays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+          ${day}
+          <img
+            src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+            width="54"
+          />
+          <div class="weather-forecast-temp">
+          <span class="weather-forecast-temp-max">22°</span><span class="weather-forecast-temp-min"> 18°</span>
+        </div>
+      </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function currentTemp(response) {
   console.log(Math.round(response.data.main.temp));
   temp = Math.round(response.data.main.temp);
@@ -89,6 +111,8 @@ function showPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=c6f8ef4575250284954db9f4dfa7a996&units=metric`;
   axios.get(apiUrl).then(currentTemp);
 }
+
+displayForecast();
 
 let currentLocationBtn = document.querySelector("#currentLocation");
 currentLocationBtn.addEventListener("click", currentLocationClick);
