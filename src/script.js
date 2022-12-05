@@ -26,6 +26,14 @@ document.querySelector(
   "#currentTime"
 ).innerHTML = `${now.getHours()}:${now.getMinutes()}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 initCity("Ohrid");
 
 function initCity(city) {
@@ -34,22 +42,32 @@ function initCity(city) {
 }
 
 function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row d-flex justify-content-around">`;
-  let forecastDays = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  forecastDays.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-          ${day}
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+      <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+      ${index}
           <img
-            src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+            src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png"
             width="54"
           />
           <div class="weather-forecast-temp">
-          <span class="weather-forecast-temp-max">22°</span><span class="weather-forecast-temp-min"> 18°</span>
+          <span class="weather-forecast-temp-max"> ${Math.round(
+            forecastDay.temp.max
+          )}°</span><span class="weather-forecast-temp-min"> ${Math.round(
+          forecastDay.temp.min
+        )}°</span>
         </div>
       </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
