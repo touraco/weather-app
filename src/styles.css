@@ -66,3 +66,7 @@ h3 {
 .col-2 {
   padding: 0px 2px;
 }
+
+.row.d-flex.justify-content-around {
+  margin: 0px 6px;
+}
